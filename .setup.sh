@@ -5,9 +5,10 @@
 set -eou pipefail
 
 font_name="FiraCode"
+go_version="1.22.1"
 
 echo "Install applicatoins"
-sudo apt install -y zsh vim
+sudo apt install -y zsh vim exa npm
 sudo usermod -s /usr/bin/zsh $USER
 
 if [ ! -d $HOME/.fzf ]
@@ -21,6 +22,14 @@ if [ ! -d $HOME/.pyenv ]
 then
   echo "--==[[ Install pyenv ]]==--"
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+fi
+
+if [ ! -d /usr/local/go ]
+then
+  echo "--==[[ Installing Golang ]]==--"
+  curl https://dl.google.com/go/go${go_version}.linux-amd64.tar.gz \
+    -o $HOME/.cache/go${go_version}.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $HOME/.cache/go${go_version}.linux-amd64.tar.gz
 fi
 
 if [ ! -d $HOME/.oh-my-zsh ]
@@ -59,3 +68,10 @@ fi
 
 echo "--==[[ Install vim plugins ]]==--"
 vim -c PluginInstall -c qall
+
+if [ -d $HOME/.vim/bundle/YouCompleteMe ]
+then
+  echo "--==[[ Compile YouCompleteMe ]]==--"
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.py --go-completer --ts-completer
+fi
