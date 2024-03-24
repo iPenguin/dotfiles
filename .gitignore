@@ -1,0 +1,13 @@
+.*_history
+.cache/
+.fonts*
+.fzf/
+.gnupg/
+.java/
+.npm
+.oh-my-zsh/
+.pyenv/
+.ssh/
+.vim/
+.viminfo
+[a-zA-Z]*
