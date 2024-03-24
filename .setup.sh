@@ -17,6 +17,12 @@ then
   ~/.fzf/install --bin --no-update-rc
 fi
 
+if [ ! -d $HOME/.pyenv ]
+then
+  echo "--==[[ Install pyenv ]]==--"
+  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+fi
+
 if [ ! -d $HOME/.oh-my-zsh ]
 then 
   echo "--==[[ Install oh-my-zsh ]]==--"
