@@ -13,37 +13,37 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 HIST_STAMPS="yyyy-mm-dd"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_TMUX_AUTOSTART='false'
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git aws docker docker-compose helm kubectl pip python pyenv \
-  vagrant vagrant-prompt web-search ssh-agent zsh-syntax-highlighting \
-  zsh-autosuggestions)
+plugins=(ansible \ 
+    aws \
+    docker \
+    docker-compose \
+    fzf \
+    git \
+    helm \
+    kubectl \
+    pip \
+    pyenv \
+    python \
+    ssh-agent \ 
+    tmux \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# fuzzy find
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # User configuration
 setopt correct
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-alias ls=exa
+alias cat='batcat'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+alias ls='exa'
 alias os='openstack'
 
 dothevenvstuff() {
@@ -76,6 +76,8 @@ do
     export KUBECONFIG="$config:$KUBECONFIG"
 done
 
+# fuzzy find
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
