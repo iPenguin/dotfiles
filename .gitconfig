@@ -1,3 +1,6 @@
+[user]
+  name = Brian Milco
+  email = bcmilco@gmail.com
 [alias]
   lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
@@ -23,10 +26,6 @@
   colorMoved = default
 [gpg]
 	program = gpg
-[includeIf "gitdir:~/git/"]
-  path = ~/git/.gitconfig
-[includeIf "gitdir:~/external/"]
-  path = ~/external/.gitconfig
 [init]
   defaultBranch = master
 [interactive]
@@ -48,6 +47,7 @@
   autosquash = true
 [rerere]
 	enabled = true
-[user]
-  name = Brian Milco
-  email = bcmilco@gmail.com
+[includeIf "gitdir:~/git/"]
+  path = ~/git/.gitconfig
+[includeIf "gitdir:~/external/"]
+  path = ~/external/.gitconfig
