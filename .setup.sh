@@ -8,7 +8,12 @@ font_name="FiraCode"
 go_version="1.22.1"
 
 echo "Install applicatoins"
-sudo apt install -y zsh vim exa npm
+sudo apt install -y \
+  bat \
+  exa \
+  npm \
+  vim \
+  zsh
 sudo usermod -s /usr/bin/zsh $USER
 
 if [ ! -d $HOME/.fzf ]
