@@ -17,7 +17,7 @@ HIST_STAMPS="yyyy-mm-dd"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART='false'
 
-plugins=(ansible \ 
+plugins=(ansible \
     aws \
     docker \
     docker-compose \
@@ -28,7 +28,7 @@ plugins=(ansible \
     pip \
     pyenv \
     python \
-    ssh-agent \ 
+    ssh-agent \
     tmux \
     zsh-autosuggestions \
     zsh-syntax-highlighting)
