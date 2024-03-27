@@ -6,6 +6,7 @@ set -eou pipefail
 
 font_name="FiraCode"
 go_version="1.22.1"
+delta_version="0.17.0"
 
 echo "Install applicatoins"
 sudo apt install -y \
@@ -27,6 +28,19 @@ if [ ! -d $HOME/.pyenv ]
 then
   echo "--==[[ Install pyenv ]]==--"
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+fi
+
+if [ ! -f $HOME/.local/bin/delta ]
+then
+  echo "--==[[ Install Delta ]]==--"
+  delta_pkg="delta-${delta_version}-x86_64-unknown-linux-gnu"
+  curl -L -o /tmp/${delta_pkg}.tar.gz \
+    https://github.com/dandavison/delta/releases/download/${delta_version}/${delta_pkg}.tar.gz
+  cd /tmp
+  /usr/bin/tar -zxf /tmp/${delta_pkg}.tar.gz
+  chmod +x /tmp/${delta_pkg}/delta
+  mv /tmp/${delta_pkg}/delta ~/.local/bin/
+  cd -
 fi
 
 if [ ! -d /usr/local/go ]
