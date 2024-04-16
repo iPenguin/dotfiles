@@ -47,6 +47,7 @@ alias cat='batcat'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias ls='exa'
 alias os='openstack'
+alias badpods="kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+)\/\1|[^\s]+\s+Completed)'"
 
 dothevenvstuff() {
     # If we're currently in a venv, deactivate before proceeding
