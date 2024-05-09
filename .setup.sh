@@ -12,6 +12,7 @@ echo "Install applicatoins"
 sudo apt install -y \
   bat \
   exa \
+  figlet \
   npm \
   vim \
   zsh

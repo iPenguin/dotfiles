@@ -146,6 +146,9 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'junegunn/vader.vim'
 " NerdFonts for Vim
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'sotte/presenting.vim'
+let g:presenting_font_large = 'banner'
+let g:presenting_font_small = 'standard'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -257,10 +260,14 @@ set ofu=syntaxcomplete#Complete
 "open the file with the cursor on the line you were last on
 autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
 
+" Startup vim with split window
+au VimEnter * vsplit
 
 """"""" vim-startify stuff
 " More pretty, less compatible
 let g:startify_fortune_use_unicode = 1
+let g:startify_session_persistence = 1
+let g:startify_session_autoload = 1
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
 " in a git repo, the list will be empty
