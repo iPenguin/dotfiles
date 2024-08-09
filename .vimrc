@@ -16,11 +16,6 @@ Plugin 'farmergreg/vim-lastplace'
 Plugin 'tpope/vim-fugitive'
 " GitHub plugin for vim-fugitive simple ":Gbrowse" a file on git
 Plugin 'tpope/vim-rhubarb.git'
-" Displays inline git blame like the cool Gitlens users on VS Code
-Plugin 'APZelos/blamer.nvim'
-let g:blamer_enabled = 0
-let g:blamer_relative_time = 1
-let g:blamer_template = '<committer>, <committer-time> • <summary>'
 
 Plugin 'jaxbot/semantic-highlight.vim'
 let g:semanticEnableFileTypes = ['go', 'javascript', 'vim']
@@ -40,7 +35,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Automatic "end" "fi" etc upon CR
 Plugin 'tpope/vim-endwise'
 " Automatic closing of XML / HTML tags
-Plugin 'alvan/vim-closetag'
+" Plugin 'alvan/vim-closetag'
 " Comment Lines: gcc
 Plugin 'tpope/vim-commentary'
 " vimrc key mappings and stuff
@@ -121,7 +116,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 " Cisco IOS syntax highlighting
-Plugin 'momota/cisco.vim'
+" Plugin 'momota/cisco.vim'
 " Ansible + Jinja2
 Plugin 'pearofducks/ansible-vim'
 " Solarized color scheme
@@ -140,10 +135,10 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " CSV / TSV / Excel-style
-Plugin 'chrisbra/csv.vim'
+" Plugin 'chrisbra/csv.vim'
 " Vader - Vim testing framework. I needed this for syntax highlighting the
 " .vader files
-Plugin 'junegunn/vader.vim'
+" Plugin 'junegunn/vader.vim'
 " NerdFonts for Vim
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'sotte/presenting.vim'
@@ -206,7 +201,7 @@ map <C-n> :NERDTreeToggle<CR>
 set wildmenu
 set wildmode=longest:full,full
 " Mouse reporting in vim. Hold "alt" in iTerm2 to disable
-set mouse =a
+set mouse-=a
 " Indentation
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
 
@@ -261,7 +256,7 @@ set ofu=syntaxcomplete#Complete
 autocmd BufReadPost * if line("'\"") | exe "normal '\"" | endif
 
 " Startup vim with split window
-au VimEnter * vsplit
+" au VimEnter * vsplit
 
 """"""" vim-startify stuff
 " More pretty, less compatible
