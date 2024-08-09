@@ -11,9 +11,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
 
 HIST_STAMPS="yyyy-mm-dd"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -43,7 +43,6 @@ setopt correct
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-alias cat='batcat'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias ls='exa'
 alias os='openstack'
