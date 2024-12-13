@@ -33,6 +33,8 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
+    ent_vpn
+    cloud_vpn
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -1698,6 +1700,24 @@
   }
 
   POWERLEVEL9K_OS_CLOUD_SHOW_ON_COMMAND='os|openstack'
+
+  function prompt_cloud_vpn() {
+    local _vpn_conn=`ip link | grep 'tun1'`
+    if [[ ! -z "$_vpn_conn" ]]; then
+      p10k segment -b green -i ''
+    else
+      p10k segment -b grey -i ''
+    fi
+  }
+
+  function prompt_ent_vpn() {
+    local _vpn_conn=`ip link | grep 'tun0'`
+    if [[ ! -z "$_vpn_conn" ]]; then
+      p10k segment -b green -i '󰱓'
+    else
+      p10k segment -b grey -i '󰅛'
+    fi
+  }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
