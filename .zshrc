@@ -44,9 +44,12 @@ setopt correct
 export LANG=en_US.UTF-8
 
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
-alias ls='exa'
+alias ls='eza'
 alias os='openstack'
-alias badpods="kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+)\/\1|[^\s]+\s+Completed)'"
+alias badpods1="kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+)\/\1|[^\s]+\s+Completed)'"
+alias badpods="watch \"kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+)\/\1|[^\s]+\s+Completed)'\""
+alias ip="ip --color=always"
+alias killvpn="sudo kill -9 \$(ps -aux | grep openconnect | grep fortinet | awk '{ print \$2 }')"
 
 dothevenvstuff() {
     # If we're currently in a venv, deactivate before proceeding
