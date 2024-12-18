@@ -11,7 +11,7 @@ delta_version="0.17.0"
 echo "Install applicatoins"
 sudo apt install -y \
   bat \
-  exa \
+  eza \
   figlet \
   npm \
   vim \
