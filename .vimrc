@@ -26,7 +26,7 @@ Plugin 'L9'
 " happily together
 Plugin 'ervandew/supertab'
 " Start page enhancement
-Plugin 'mhinz/vim-startify'
+"Plugin 'mhinz/vim-startify'
 " File navigation tool
 Plugin 'ctrlpvim/ctrlp.vim'
 " File tree plugin (don't tell the Vim purists)
@@ -46,7 +46,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'rbong/vim-flog'
 " Allow repeating, like in surround
 Plugin 'tpope/vim-repeat'
-" Async linter - This is my favorite plugin in teh whole world
+" Async linter - This is my favorite plugin in the whole world
 Plugin 'dense-analysis/ale'
 let g:ale_echo_msg_format = '[%linter%] %s [%code%]'
 let g:ale_sign_warning = '⚠️'
@@ -65,13 +65,14 @@ let g:ale_fixers = {
 \   'javascript': 'eslint',
 \}
 
-set number relativenumber
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+"set number relativenumber
+set number 
+"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " Hugo static site generator helper plugin
 Plugin 'robertbasic/vim-hugo-helper'
 " LaTeX
-Plugin 'lervag/vimtex'
-let g:tex_flavor = 'latex'
+"Plugin 'lervag/vimtex'
+"let g:tex_flavor = 'latex'
 " Crazy auto-completion for lots of languages
 " NOTE: After update run the Zsh alias "recompile-ymcd"
 Plugin 'ycm-core/YouCompleteMe'
