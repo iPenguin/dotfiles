@@ -1702,8 +1702,8 @@
   POWERLEVEL9K_OS_CLOUD_SHOW_ON_COMMAND='os|openstack'
 
   function prompt_cloud_vpn() {
-    local _vpn_conn=`ip link | grep 'tun1'`
-    if [[ ! -z "$_vpn_conn" ]]; then
+    ip link | grep -q 'tun1'
+    if [[ $? == 0 ]]; then
       p10k segment -b green -i ''
     else
       p10k segment -b grey -i ''
@@ -1711,8 +1711,8 @@
   }
 
   function prompt_ent_vpn() {
-    local _vpn_conn=`ip link | grep 'tun0'`
-    if [[ ! -z "$_vpn_conn" ]]; then
+    ip link | grep -q 'tun0'
+    if [[ $? == 0 ]]; then
       p10k segment -b green -i '󰱓'
     else
       p10k segment -b grey -i '󰅛'
