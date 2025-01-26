@@ -50,7 +50,9 @@
   autostash = true
   autosquash = true
 [rerere]
-	enabled = true
+  enabled = true
+[include]
+  path = ~/.config/gitconfig
 [includeIf "gitdir:~/git/"]
   path = ~/git/.gitconfig
 [includeIf "gitdir:~/external/"]
