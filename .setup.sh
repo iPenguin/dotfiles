@@ -1,23 +1,37 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 # Installing software for use with the dot files in this repo
+#
+# To install the dot files in a clean home directory:
+#
+# cd $HOME
+# alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+# dots clone https://github.com/ipenguin/dotfiles.git
+# dots checkout
+#
 
-set -eou pipefail
+set -eo pipefail
 
-font_name="FiraCode"
 go_version="1.22.1"
 delta_version="0.17.0"
+nerdfont_ver="v3.0.0"
+fonts=(FiraCode InconsolataGo UbuntuMono)
 
-echo "Install applicatoins"
+echo "Install applications"
 sudo apt install -y \
   bat \
   cmake \
-  eza \
   figlet \
   npm \
+  openconnect \
+  python3.12-dev \
+  tmux \
   vim \
   zsh
 sudo usermod -s /usr/bin/zsh $USER
+
+# Set vim as the default editor
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim.basic 100
 
 if [ ! -d $HOME/.fzf ]
 then 
@@ -63,16 +77,20 @@ then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi 
 
-nerd_font="${font_name}NerdFontMono-Regular.ttf"
-if [ ! -d "$HOME/.fonts/${nerd_font}" ]
+if [ ! -d "$HOME/.local/share/fonts" ]
 then
-  echo "--==[[ Install nerd fonts ]]==--"
-  mkdir -p $HOME/.fonts
-  #https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
-  curl \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/${font_name}/Regular/${nerd_font} \
-    -o $HOME/.fonts/${nerd_font}
+    mkdir -p $HOME/.local/share/fonts
 fi
+
+for f in $fonts
+do 
+  font="${f}NerdFontMono-Regular.ttf"
+  if [ ! -f "$HOME/.local/share/fonts/${font}" ]
+  then 
+    wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/${f}/Regular/${font} \
+      -O $HOME/.local/share/fonts/${font}
+  fi
+done
 
 if [ ! -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]
 then
@@ -96,3 +114,8 @@ then
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py --go-completer --ts-completer
 fi
+
+echo "--==[[ Download Backgrounds ]]==--"
+curl https://stsci-opo.org/STScIdd-01GA6KKWG229B16K4Q38CH3BXS.png -o $HOME/Pictures/carina-nebula.png
+curl https://www.nasa.gov/wp-content/uploads/2024/10/gsfc-20171208-archive-e000102orig.png -o $HOME/Pictures/Supernova-1987a.png
+curl https://www.nasa.gov/wp-content/uploads/2022/09/stsci-01ga76rm0c11w977jrhgj5j26x.png -o $HOME/Pictures/Tarantula.png
