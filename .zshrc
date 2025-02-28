@@ -78,7 +78,7 @@ dothevenvstuff() {
 KUBECONFIG="$HOME/.kube/config"
 for config in $HOME/.kube/configs/*
 do
-    export KUBECONFIG="$config:$KUBECONFIG"
+    export KUBECONFIG="$KUBECONFIG:$config"
 done
 
 # fuzzy find
