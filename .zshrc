@@ -14,6 +14,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+export GPG_TTY=$TTY
+
 HIST_STAMPS="yyyy-mm-dd"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART='false'
@@ -48,8 +50,6 @@ alias badpods1="kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+
 alias badpods="watch \"kubectl get po -A -o wide | grep -Pv '(?:[^\s]+\s+){2}(?:([0-9]+)\/\1|[^\s]+\s+Completed)'\""
 alias ip="ip --color=always"
 alias killvpn="sudo kill -9 \$(ps -aux | grep openconnect | grep fortinet | awk '{ print \$2 }')"
-
-export GPG_TTY=$(tty)
 
 dothevenvstuff() {
     # If we're currently in a venv, deactivate before proceeding
