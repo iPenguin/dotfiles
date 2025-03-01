@@ -116,6 +116,8 @@ then
 fi
 
 echo "--==[[ Download Backgrounds ]]==--"
-curl https://assets.science.nasa.gov/dynamicimage/assets/science/astro/universe/2023/09/web_first_images_release.png -o $HOME/Pictures/carina-nebula.png
+curl https://assets.science.nasa.gov/dynamicimage/assets/science/astro/universe/2023/09/web_first_images_release.png -o $HOME/Pictures/Carina-nebula.png
 curl https://www.nasa.gov/wp-content/uploads/2024/10/gsfc-20171208-archive-e000102orig.png -o $HOME/Pictures/Supernova-1987a.png
 curl https://www.nasa.gov/wp-content/uploads/2022/09/stsci-01ga76rm0c11w977jrhgj5j26x.png -o $HOME/Pictures/Tarantula.png
+curl https://svs.gsfc.nasa.gov/vis/a010000/a013500/a013560/STSCI-H-p2016a-m-2000x1374.png -o $HOME/Pictures/Starbirth.png
+curl https://science.nasa.gov/wp-content/uploads/2023/04/stsci-h-p1821a-m-1699x20001a.png -o $HOME/Pictures/Lagoon-nebula.png
