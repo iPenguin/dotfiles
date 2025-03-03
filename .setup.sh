@@ -46,6 +46,11 @@ then
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 fi
 
+if [ ! -f $HOME/.local/bin/task ]
+then
+  sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+fi
+
 if [ ! -f $HOME/.local/bin/delta ]
 then
   echo "--==[[ Install Delta ]]==--"
